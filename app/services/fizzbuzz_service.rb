@@ -10,6 +10,7 @@ class FizzbuzzService
     self.str2 = str2
   end
 
+  # @return [Int, String] either the integer or the corresponding fizzbuzz value
   def map(i)
     raise AllPositiveIntegerRequiredError unless i.positive? && int1.positive? && int2.positive?
 

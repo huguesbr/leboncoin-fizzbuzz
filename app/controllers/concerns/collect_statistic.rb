@@ -3,8 +3,10 @@ module CollectStatistic
   included do
     before_action :collect_statistics
 
+    # collect statistic on the current request
+    # stored in request_entries table
     def collect_statistics
-      RequestEntry.create!(request_method: request.method, path: request.path, params: controller_params, params_hash: Digest::MD5.hexdigest(controller_params.to_json))
+      RequestStatisticsService.new.track_request(request_method: request.method, path: request.path, params: controller_params)
     end
 
     private

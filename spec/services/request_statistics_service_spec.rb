@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 describe RequestStatisticsService do
+  describe "#track_request" do
+    subject { described_class.new.track_request(request_method: "POST", path: "/abc", params: {blah: "blah"}) }
+
+    it "collect statistics" do
+      expect { subject }.to change { RequestEntry.count }.by(1)
+      expect(RequestEntry.last.path).to eq('/abc')
+      expect(RequestEntry.last.request_method).to eq('POST')
+      expect(RequestEntry.last.params).to eq("blah" => "blah")
+      expect(RequestEntry.last.params_hash).to eq(Digest::MD5.hexdigest('{"blah":"blah"}'))
+    end
+  end
+
   describe "#most_frequent_request" do
     subject { described_class.new.most_frequent_request }
 

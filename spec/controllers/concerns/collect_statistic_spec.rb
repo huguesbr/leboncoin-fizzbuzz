@@ -10,14 +10,16 @@ describe CollectStatistic, type: :controller do
   end
 
   describe '#collect_statistics' do
+    let(:service) { double("RequestStatisticService") }
     subject { get :index, params: { blah: "blah" } }
 
-    it "collect statistics" do
-      expect { subject }.to change { RequestEntry.count }.by(1)
-      expect(RequestEntry.last.path).to eq('/anonymous')
-      expect(RequestEntry.last.request_method).to eq('GET')
-      expect(RequestEntry.last.params).to eq("blah" => "blah")
-      expect(RequestEntry.last.params_hash).to eq(Digest::MD5.hexdigest('{"blah":"blah"}'))
+    before do
+      allow(RequestStatisticsService).to receive(:new).and_return(service)
+    end
+
+    it "call request statistic service track request" do
+      expect(service).to receive(:track_request).with(request_method: "GET", path: "/anonymous", params: { blah: "blah" })
+      subject
     end
   end
 end
