@@ -29,12 +29,12 @@ Return the parameters corresponding to the most used request, as well as the num
 ## Specs
 ```bash
 bin/rspec spec/
-..........
+...........
 
-Finished in 0.05874 seconds (files took 1.49 seconds to load)
-10 examples, 0 failures
+Finished in 0.12536 seconds (files took 1.77 seconds to load)
+11 examples, 0 failures
 
-Coverage report generated for RSpec to /Users/hugues/Developer/lbc/coverage. 160 / 161 LOC (99.38%) covered.
+Coverage report generated for RSpec to /Users/hugues/Developer/lbc/coverage. 196 / 197 LOC (99.49%) covered.
 ```
 
 ## TODO:
@@ -45,6 +45,7 @@ Coverage report generated for RSpec to /Users/hugues/Developer/lbc/coverage. 160
   - [ ] docs
 - [ ] statistics API
     - [ ] feature
+      - [x] metric collection
     - [ ] specs
     - [ ] docs
 - [ ] standardrb / rubocop
