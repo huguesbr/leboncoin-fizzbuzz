@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe RequestStatisticsController, type: :request do
   describe "#index" do
     let(:service) { double("RequestStatisticService") }
 
-    subject { get '/request_statistics' }
+    subject { get "/request_statistics" }
 
     before do
       allow(RequestStatisticsService).to receive(:new).and_return(service)

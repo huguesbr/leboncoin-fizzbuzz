@@ -71,4 +71,4 @@ Coverage report generated for RSpec to /Users/hugues/Developer/lbc/coverage. 252
       - [x] metric collection
     - [x] specs
     - [x] docs
-- [ ] standardrb / rubocop
+- [x] standardrb / rubocop

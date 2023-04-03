@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe RequestStatisticsService do
   describe "#track_request" do
@@ -6,8 +6,8 @@ describe RequestStatisticsService do
 
     it "collect statistics" do
       expect { subject }.to change { RequestEntry.count }.by(1)
-      expect(RequestEntry.last.path).to eq('/abc')
-      expect(RequestEntry.last.request_method).to eq('POST')
+      expect(RequestEntry.last.path).to eq("/abc")
+      expect(RequestEntry.last.request_method).to eq("POST")
       expect(RequestEntry.last.params).to eq("blah" => "blah")
       expect(RequestEntry.last.params_hash).to eq(Digest::MD5.hexdigest('{"blah":"blah"}'))
     end
@@ -17,7 +17,7 @@ describe RequestStatisticsService do
     subject { described_class.new.most_frequent_request }
 
     context "with no stats" do
-      it 'return nil' do
+      it "return nil" do
         expect(subject).to eq(nil)
       end
     end
@@ -28,13 +28,13 @@ describe RequestStatisticsService do
       let!(:other_requests) { create_list(:request_entry, 3, path: "top", params: {a: "b"}, request_method: "POST") }
       let!(:top_requests) { create_list(:request_entry, 4, path: "top", params: {a: "b"}, request_method: "GET") }
 
-      it 'return the top request hit stats' do
+      it "return the top request hit stats" do
         expect(subject).to eq(
-                             hits: 4,
-                             method: "GET",
-                             params: {"a" => "b"},
-                             path: "top"
-                           )
+          hits: 4,
+          method: "GET",
+          params: {"a" => "b"},
+          path: "top"
+        )
       end
     end
   end

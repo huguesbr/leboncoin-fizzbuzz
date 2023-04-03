@@ -1,5 +1,4 @@
 class RequestStatisticsController < ApplicationController
-
   def index
     render json: service.most_frequent_request || {}
   end
@@ -9,7 +8,6 @@ class RequestStatisticsController < ApplicationController
   def service
     @service ||= RequestStatisticsService.new
   end
-
 end
 
 __END__

@@ -2,7 +2,7 @@ class FizzbuzzController < ApplicationController
   include CollectStatistic
 
   def show
-    results = (1..params[:limit].to_i).map {|i| service.map(i) }
+    results = (1..params[:limit].to_i).map { |i| service.map(i) }
     render json: results
   end
 

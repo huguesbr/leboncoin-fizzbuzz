@@ -39,7 +39,7 @@ describe FizzbuzzService do
 
     shared_examples "it raises AllPositiveIntegerRequiredError error" do
       it "raises AllPositiveIntegerRequiredError error" do
-        expect{subject}.to raise_error described_class::AllPositiveIntegerRequiredError
+        expect { subject }.to raise_error described_class::AllPositiveIntegerRequiredError
       end
     end
 

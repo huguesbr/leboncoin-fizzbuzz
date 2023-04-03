@@ -14,12 +14,11 @@ class FizzbuzzService
   def map(i)
     raise AllPositiveIntegerRequiredError unless i.positive? && int1.positive? && int2.positive?
 
-    case
-    when (i % (int1 * int2)) == 0
+    if (i % (int1 * int2)) == 0
       "#{str1}#{str2}"
-    when (i % int2) == 0
+    elsif (i % int2) == 0
       str2
-    when (i % int1) == 0
+    elsif (i % int1) == 0
       str1
     else
       i

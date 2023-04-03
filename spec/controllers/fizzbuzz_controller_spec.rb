@@ -1,20 +1,20 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe 'FizzbuzzController', type: :request do
+describe "FizzbuzzController", type: :request do
   describe "#show" do
     let(:int1) { 3 }
     let(:int2) { 5 }
     let(:str1) { "fizz" }
     let(:str2) { "buzz" }
     let(:limit) { 16 }
-    let(:params) { { int1: int1, int2: int2, str1: str1, str2: str2, limit: limit } }
-    subject { get '/fizzbuzz', params: params }
+    let(:params) { {int1: int1, int2: int2, str1: str1, str2: str2, limit: limit} }
+    subject { get "/fizzbuzz", params: params }
 
     context "with a proper request" do
-      it 'return a fizzbuzz' do
+      it "return a fizzbuzz" do
         subject
         expect(response.status).to eq(200)
-        expect(JSON.parse(response.body)).to eq([1,2,"fizz",4,"buzz","fizz",7,8,"fizz","buzz",11,"fizz",13,14,"fizzbuzz",16])
+        expect(JSON.parse(response.body)).to eq([1, 2, "fizz", 4, "buzz", "fizz", 7, 8, "fizz", "buzz", 11, "fizz", 13, 14, "fizzbuzz", 16])
       end
     end
 
