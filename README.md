@@ -24,7 +24,30 @@ Return the parameters corresponding to the most used request, as well as the num
 - Rails 7.0.4.3
 
 ## Setup
-`bin/rails db:create db:migrate`
+
+```bash
+bin/rails db:create db:migrate
+```
+
+## Usage
+
+```bash
+bin/rails server
+
+```
+
+### Fizzbuzz
+```bash
+curl http://127.0.0.1:3000/fizzbuzz?limit=16&int1=3&int2=5&str1=fizz&str2=buzz
+[1,2,"fizz",4,"buzz","fizz",7,8,"fizz","buzz",11,"fizz",13,14,"fizzbuzz",16]
+```
+
+### Stats
+
+```bash
+curl http://127.0.0.1:3000/request_statistics
+{"method":"GET","path":"/fizzbuzz","params":{"limit":"300","int1":"3","int2":"5","str1":"fizz","str2":"buzz"},"hits":4}
+```
 
 ## Specs
 ```bash
