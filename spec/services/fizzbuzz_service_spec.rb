@@ -11,6 +11,7 @@ describe FizzbuzzService do
 
     context "with a  non fizzbuzz integer" do
       let(:i) { 4 }
+
       it "returns the integer" do
         expect(subject).to eq(i)
       end
@@ -18,6 +19,7 @@ describe FizzbuzzService do
 
     context "with a  fizz integer" do
       let(:i) { int1 }
+
       it "returns the fizz" do
         expect(subject).to eq("fizz")
       end
@@ -25,6 +27,7 @@ describe FizzbuzzService do
 
     context "with a  buzz integer" do
       let(:i) { int2 }
+
       it "returns the buzz" do
         expect(subject).to eq("buzz")
       end
@@ -32,6 +35,7 @@ describe FizzbuzzService do
 
     context "with a  fizzbuzz integer" do
       let(:i) { int1 * int2 }
+
       it "returns the fizzbuzz" do
         expect(subject).to eq("fizzbuzz")
       end
@@ -45,18 +49,21 @@ describe FizzbuzzService do
 
     context "with a non positive integer" do
       let(:i) { -3 }
+
       it_behaves_like "it raises AllPositiveIntegerRequiredError error"
     end
 
     context "with a non positive int1" do
       let(:i) { 0 }
       let(:int1) { -3 }
+
       it_behaves_like "it raises AllPositiveIntegerRequiredError error"
     end
 
     context "with a non positive int2" do
       let(:i) { 0 }
       let(:int2) { -3 }
+
       it_behaves_like "it raises AllPositiveIntegerRequiredError error"
     end
   end

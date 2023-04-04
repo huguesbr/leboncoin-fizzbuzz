@@ -33,7 +33,6 @@ bin/rails db:create db:migrate
 
 ```bash
 bin/rails server
-
 ```
 
 ### Fizzbuzz
@@ -60,7 +59,13 @@ Finished in 0.13695 seconds (files took 1.52 seconds to load)
 Coverage report generated for RSpec to /Users/hugues/Developer/lbc/coverage. 252 / 253 LOC (99.6%) covered.
 ```
 
-## TODO:
+## Linter
+
+```bash
+standardrb --fix
+```
+
+## TODOs
 
 - [x] fizzbuzz API feature
   - [x] feature
@@ -72,3 +77,4 @@ Coverage report generated for RSpec to /Users/hugues/Developer/lbc/coverage. 252
     - [x] specs
     - [x] docs
 - [x] standardrb / rubocop
+  - [ ] Pre-commit

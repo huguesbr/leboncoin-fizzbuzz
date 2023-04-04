@@ -25,8 +25,8 @@ describe RequestStatisticsService do
     context "with some requests" do
       let!(:other_requests) { create_list(:request_entry, 3, path: "low", params: {a: "b"}, request_method: "GET") }
       let!(:other_requests) { create_list(:request_entry, 3, path: "top", params: {a: "c"}, request_method: "GET") }
-      let!(:other_requests) { create_list(:request_entry, 3, path: "top", params: {a: "b"}, request_method: "POST") }
       let!(:top_requests) { create_list(:request_entry, 4, path: "top", params: {a: "b"}, request_method: "GET") }
+      let!(:other_requests) { create_list(:request_entry, 3, path: "top", params: {a: "b"}, request_method: "POST") }
 
       it "return the top request hit stats" do
         expect(subject).to eq(

@@ -26,7 +26,7 @@ describe "FizzbuzzController", type: :request do
         allow(service).to receive(:map).and_return(1)
       end
 
-      it "instanciate the service with the proper configuration" do
+      it "instantiate the service with the proper configuration" do
         allow(FizzbuzzService).to receive(:new).with(int1: 3, int2: 5, str1: "fizz", str2: "buzz").and_return(service)
         subject
       end
